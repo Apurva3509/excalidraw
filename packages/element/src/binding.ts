@@ -411,11 +411,14 @@ const bindingStrategyForNewSimpleArrowEndpointDragging = (
       const other: BindingStrategy = {
         mode: otherIsInsideBinding ? "inside" : "orbit",
         element: otherElement,
-        focusPoint: snapToCenter(
-          otherElement,
-          elementsMap,
-          arrowOriginalStartPoint ?? pointFrom<GlobalPoint>(arrow.x, arrow.y),
-        ),
+        focusPoint: otherIsInsideBinding
+          ? arrowOriginalStartPoint ?? pointFrom<GlobalPoint>(arrow.x, arrow.y)
+          : snapToCenter(
+              otherElement,
+              elementsMap,
+              arrowOriginalStartPoint ??
+                pointFrom<GlobalPoint>(arrow.x, arrow.y),
+            ),
       };
 
       // We are hovering another element with the end point
@@ -425,7 +428,9 @@ const bindingStrategyForNewSimpleArrowEndpointDragging = (
         current = {
           mode: isInsideBinding ? "inside" : "orbit",
           element: hovered,
-          focusPoint: snapToCenter(hovered, elementsMap, point),
+          focusPoint: isInsideBinding
+            ? point
+            : snapToCenter(hovered, elementsMap, point),
         };
       } else {
         current = { mode: null };
