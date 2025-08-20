@@ -1194,19 +1194,9 @@ const getElbowArrowData = (
   if (options?.isDragging) {
     const elements = Array.from(elementsMap.values());
     hoveredStartElement =
-      getHoveredElement(
-        origStartGlobalPoint,
-        elementsMap,
-        elements,
-        options?.zoom,
-      ) || null;
+      getHoveredElement(origStartGlobalPoint, elementsMap, elements) || null;
     hoveredEndElement =
-      getHoveredElement(
-        origEndGlobalPoint,
-        elementsMap,
-        elements,
-        options?.zoom,
-      ) || null;
+      getHoveredElement(origEndGlobalPoint, elementsMap, elements) || null;
   } else {
     hoveredStartElement = arrow.startBinding
       ? getBindableElementForId(arrow.startBinding.elementId, elementsMap) ||
@@ -2249,9 +2239,8 @@ const getHoveredElement = (
   origPoint: GlobalPoint,
   elementsMap: NonDeletedSceneElementsMap,
   elements: readonly Ordered<NonDeletedExcalidrawElement>[],
-  zoom?: AppState["zoom"],
 ) => {
-  return getHoveredElementForBinding(origPoint, elements, elementsMap, zoom);
+  return getHoveredElementForBinding(origPoint, elements, elementsMap);
 };
 
 const gridAddressesEqual = (a: GridAddress, b: GridAddress): boolean =>

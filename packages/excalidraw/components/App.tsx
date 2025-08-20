@@ -4490,7 +4490,6 @@ class App extends React.Component<AppProps, AppState> {
               (element) => element.id !== elbowArrow?.id || step !== 0,
             ),
             this.scene.getNonDeletedElementsMap(),
-            this.state.zoom,
           ),
         });
 
@@ -4719,7 +4718,6 @@ class App extends React.Component<AppProps, AppState> {
           pointFrom<GlobalPoint>(scenePointer.x, scenePointer.y),
           this.scene.getNonDeletedElements(),
           this.scene.getNonDeletedElementsMap(),
-          this.state.zoom,
         );
 
         if (hoveredElement && !this.bindModeHandler) {
@@ -6051,7 +6049,6 @@ class App extends React.Component<AppProps, AppState> {
             newElement,
             "end",
             this.scene,
-            this.state.zoom,
           ),
         });
       } else {
@@ -6156,7 +6153,6 @@ class App extends React.Component<AppProps, AppState> {
             pointFrom<GlobalPoint>(scenePointerX, scenePointerY),
             this.scene.getNonDeletedElements(),
             elementsMap,
-            this.state.zoom,
           );
 
           // Timed bind mode handler for arrow elements
@@ -7803,7 +7799,6 @@ class App extends React.Component<AppProps, AppState> {
       ),
       this.scene.getNonDeletedElements(),
       this.scene.getNonDeletedElementsMap(),
-      this.state.zoom,
     );
 
     this.setState({
@@ -8009,7 +8004,6 @@ class App extends React.Component<AppProps, AppState> {
         lastGlobalPoint,
         this.scene.getNonDeletedElements(),
         this.scene.getNonDeletedElementsMap(),
-        this.state.zoom,
       );
 
       // clicking inside commit zone → finalize arrow
@@ -8130,7 +8124,6 @@ class App extends React.Component<AppProps, AppState> {
         point,
         this.scene.getNonDeletedElements(),
         elementsMap,
-        this.state.zoom,
       );
 
       this.scene.mutateElement(element, {
@@ -8576,7 +8569,6 @@ class App extends React.Component<AppProps, AppState> {
             pointFrom<GlobalPoint>(pointerCoords.x, pointerCoords.y),
             this.scene.getNonDeletedElements(),
             elementsMap,
-            this.state.zoom,
           );
 
           // Timed bind mode handler for arrow elements
@@ -8927,7 +8919,6 @@ class App extends React.Component<AppProps, AppState> {
               suggestedBindings: getSuggestedBindingsForBindingElements(
                 selectedElements,
                 this.scene.getNonDeletedElementsMap(),
-                this.state.zoom,
               ),
             });
           }
@@ -9237,7 +9228,6 @@ class App extends React.Component<AppProps, AppState> {
                 newElement,
                 "end",
                 this.scene,
-                this.state.zoom,
               ),
             });
           }
@@ -10783,7 +10773,6 @@ class App extends React.Component<AppProps, AppState> {
       pointFrom<GlobalPoint>(pointerCoords.x, pointerCoords.y),
       this.scene.getNonDeletedElements(),
       this.scene.getNonDeletedElementsMap(),
-      this.state.zoom,
     );
     this.setState({
       suggestedBindings:
@@ -11406,7 +11395,6 @@ class App extends React.Component<AppProps, AppState> {
       const suggestedBindings = getSuggestedBindingsForBindingElements(
         selectedElements,
         this.scene.getNonDeletedElementsMap(),
-        this.state.zoom,
       );
 
       const elementsToHighlight = new Set<ExcalidrawElement>();
